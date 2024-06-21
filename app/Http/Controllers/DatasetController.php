@@ -102,7 +102,7 @@ class DatasetController extends Controller
                 'kondisi_rumah' => 'required|in:Batu Permanen,Bambu Anyam,Papan',
                 'jml_penghasilan' => 'required|integer',
                 'status_rumah' => 'required|in:Milik Sendiri,Sewa',
-                'label' => 'required|in:Layak,Tidak Layak',
+                'label' => 'required|integer',
             ];
 
             $validatedData = $this->validate($request, $rules);

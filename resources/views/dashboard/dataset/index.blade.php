@@ -211,11 +211,11 @@
                                                     <select class="form-control @error('label') is-invalid @enderror"
                                                         name="label" id="label" required>
                                                         <option value="">Pilih Label</option>
-                                                        <option value="Layak"
+                                                        <option value="1"
                                                             {{ old('label', $dataset->label) == 'Layak' ? 'selected' : '' }}>
                                                             Layak
                                                         </option>
-                                                        <option value="Tidak Layak"
+                                                        <option value="0"
                                                             {{ old('label', $dataset->label) == 'Tidak Layak' ? 'selected' : '' }}>
                                                             Tidak Layak</option>
                                                     </select>

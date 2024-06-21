@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dataset;
+use App\Models\Klasifikasi;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -13,10 +16,19 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $totalUser = User::count();
+        $totalData = Dataset::count();
+        $totalLayak = Klasifikasi::where('hasil_klasifikasi', "Layak")->count();
+        $totalNoLayak = Klasifikasi::where('hasil_klasifikasi', "Tidak Layak")->count();
+
         return view(
             'dashboard.index',
             [
-                'title' => 'Dashboard'
+                'title' => 'Dashboard',
+                'user' => $totalUser,
+                'data' => $totalData,
+                'layak' => $totalLayak,
+                'tidak' => $totalNoLayak,
             ]
         );
     }

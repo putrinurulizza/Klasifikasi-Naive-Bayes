@@ -8,12 +8,13 @@ class NaiveBayesModel extends Model
 {
     public function classify($datasetId)
     {
+
         // Ambil data dari dataset berdasarkan ID
         $dataset = Dataset::findOrFail($datasetId);
-
         // Hitung probabilitas kelas layak (1) dan tidak layak (0)
         $prob_layak = $this->calculateProbability(1, $dataset);
         $prob_tidak_layak = $this->calculateProbability(0, $dataset);
+
 
         // Klasifikasi berdasarkan probabilitas tertinggi
         if ($prob_layak > $prob_tidak_layak) {
@@ -28,7 +29,7 @@ class NaiveBayesModel extends Model
         // Hitung probabilitas prior P(Y=label)
         $total_data = Dataset::count(); // Menghitung jumlah total data
         $count_label = Dataset::where('label', $label)->count(); // Menghitung jumlah data berlabel $label
-
+        // dd($count_label);
         if ($count_label == 0) {
             return 0; // Menghindari division by zero, bisa di-handle sesuai kebutuhan
         }
