@@ -14,12 +14,10 @@ class Dataset extends Model
     // Specify the fillable fields
     protected $fillable = [
         'nama',
-        'pkh',
-        'jml_tanggungan',
-        'kepala_rt',
-        'kondisi_rumah',
-        'jml_penghasilan',
-        'status_rumah',
+        'ipk',
+        'ekstrakurikuler',
+        'kepemimpinan',
+        'sertifikat',
         'label',
     ];
 

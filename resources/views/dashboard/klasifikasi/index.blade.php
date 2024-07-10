@@ -39,12 +39,10 @@
                                         <th>NO</th>
                                         <th>HASIL KLASIFIKASI</th>
                                         <th>NAMA</th>
-                                        <th>PKH</th>
-                                        <th>JUMLAH TANGGUNGAN</th>
-                                        <th>KEPALA RUMAH TANGGA</th>
-                                        <th>KONDISI RUMAH</th>
-                                        <th>JUMLAH PENGHASILAN</th>
-                                        <th>STATUS RUMAH</th>
+                                        <th>IPK</th>
+                                        <th>EKSTRAKURIKULER</th>
+                                        <th>KEPEMIMPINAN</th>
+                                        <th>SERTIFIKAT</th>
                                         <th>LABEL</th>
                                     </tr>
                                 </thead>
@@ -53,20 +51,19 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
-                                                @if ($klasifikasi->hasil_klasifikasi == 'Layak')
-                                                    <span class="badge badge-danger bg-success fw-bold fs-5">Layak</span>
+                                                @if ($klasifikasi->hasil_klasifikasi == 'Berprestasi Akademik')
+                                                    <span class="badge badge-danger bg-success fw-bold fs-5">Berprestasi
+                                                        Akademik</span>
                                                 @else
-                                                    <span class="badge badge-warning bg-danger fw-bold fs-5">Tidak
-                                                        Layak</span>
+                                                    <span class="badge badge-warning bg-warning fw-bold fs-5">Berprestasi
+                                                        Non-Akademik</span>
                                                 @endif
                                             </td>
                                             <td>{{ $klasifikasi->dataset->nama }}</td>
-                                            <td>{{ $klasifikasi->dataset->pkh }}</td>
-                                            <td>{{ $klasifikasi->dataset->jml_tanggungan }}</td>
-                                            <td>{{ $klasifikasi->dataset->kepala_rt }}</td>
-                                            <td>{{ $klasifikasi->dataset->kondisi_rumah }}</td>
-                                            <td>{{ $klasifikasi->dataset->jml_penghasilan }}</td>
-                                            <td>{{ $klasifikasi->dataset->status_rumah }}</td>
+                                            <td>{{ $klasifikasi->dataset->ipk }}</td>
+                                            <td>{{ $klasifikasi->dataset->ekstrakurikuler }}</td>
+                                            <td>{{ $klasifikasi->dataset->kepemimpinan }}</td>
+                                            <td>{{ $klasifikasi->dataset->sertifikat }}</td>
                                             <td>{{ $klasifikasi->dataset->label }}</td>
                                         </tr>
                                     @endforeach

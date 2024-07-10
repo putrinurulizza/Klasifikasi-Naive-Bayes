@@ -35,12 +35,10 @@
                                     <tr>
                                         <th>NO</th>
                                         <th>NAMA</th>
-                                        <th>PKH</th>
-                                        <th>JUMLAH TANGGUNGAN</th>
-                                        <th>KEPALA RUMAH TANGGA</th>
-                                        <th>KONDISI RUMAH</th>
-                                        <th>JUMLAH PENGHASILAN</th>
-                                        <th>STATUS RUMAH</th>
+                                        <th>IPK</th>
+                                        <th>EKSTRAKURIKULER</th>
+                                        <th>KEPEMIMPINAN</th>
+                                        <th>SERTIFIKAT</th>
                                         <th>LABEL</th>
                                         <th>ACTION</th>
                                     </tr>
@@ -50,12 +48,10 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $dataset->nama }}</td>
-                                            <td>{{ $dataset->pkh }}</td>
-                                            <td>{{ $dataset->jml_tanggungan }}</td>
-                                            <td>{{ $dataset->kepala_rt }}</td>
-                                            <td>{{ $dataset->kondisi_rumah }}</td>
-                                            <td>{{ $dataset->jml_penghasilan }}</td>
-                                            <td>{{ $dataset->status_rumah }}</td>
+                                            <td>{{ $dataset->ipk }}</td>
+                                            <td>{{ $dataset->ekstrakurikuler }}</td>
+                                            <td>{{ $dataset->kepemimpinan }}</td>
+                                            <td>{{ $dataset->sertifikat }}</td>
                                             <td>{{ $dataset->label }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-warning me-2"
@@ -95,19 +91,12 @@
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="pkh" class="form-label">PKH</label>
-                                                    <select class="form-control @error('pkh') is-invalid @enderror"
-                                                        name="pkh" id="pkh" required>
-                                                        <option value="">Pilih PKH</option>
-                                                        <option value="PKH"
-                                                            {{ old('pkh', $dataset->pkh) == 'PKH' ? 'selected' : '' }}>PKH
-                                                        </option>
-                                                        <option value="Non-PKH"
-                                                            {{ old('pkh', $dataset->pkh) == 'Non-PKH' ? 'selected' : '' }}>
-                                                            Non-PKH
-                                                        </option>
-                                                    </select>
-                                                    @error('pkh')
+                                                    <label for="ipk" class="form-label">IPK</label>
+                                                    <input type="number" step="0.01"
+                                                        class="form-control @error('ipk') is-invalid @enderror"
+                                                        name="ipk" id="ipk"
+                                                        value="{{ old('ipk', $dataset->ipk) }}" autofocus required>
+                                                    @error('ipk')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
                                                         </div>
@@ -115,56 +104,20 @@
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="jml_tanggungan" class="form-label">Jumlah Tanggungan</label>
-                                                    <input type="number"
-                                                        class="form-control @error('jml_tanggungan') is-invalid @enderror"
-                                                        name="jml_tanggungan" id="jml_tanggungan"
-                                                        value="{{ old('jml_tanggungan', $dataset->jml_tanggungan) }}"
-                                                        required>
-                                                    @error('jml_tanggungan')
-                                                        <div class="invalid-feedback">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-
-                                                <div class="mb-3">
-                                                    <label for="kepala_rt" class="form-label">Kepala Rumah Tangga</label>
-                                                    <select class="form-control @error('kepala_rt') is-invalid @enderror"
-                                                        name="kepala_rt" id="kepala_rt" required>
-                                                        <option value="">Pilih Jenis Kelamin Kepala Rumah Tangga
-                                                        </option>
-                                                        <option value="Laki-Laki"
-                                                            {{ old('kepala_rt', $dataset->kepala_rt) == 'Laki-Laki' ? 'selected' : '' }}>
-                                                            Laki-Laki</option>
-                                                        <option value="Perempuan"
-                                                            {{ old('kepala_rt', $dataset->kepala_rt) == 'Perempuan' ? 'selected' : '' }}>
-                                                            Perempuan</option>
-                                                    </select>
-                                                    @error('kepala_rt')
-                                                        <div class="invalid-feedback">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-
-                                                <div class="mb-3">
-                                                    <label for="kondisi_rumah" class="form-label">Kondisi Rumah</label>
+                                                    <label for="ekstrakurikuler" class="form-label">Ekstrakurikuler</label>
                                                     <select
-                                                        class="form-control @error('kondisi_rumah') is-invalid @enderror"
-                                                        name="kondisi_rumah" id="kondisi_rumah" required>
-                                                        <option value="">Pilih Kondisi Rumah</option>
-                                                        <option value="Batu Permanen"
-                                                            {{ old('kondisi_rumah', $dataset->kondisi_rumah) == 'Batu Permanen' ? 'selected' : '' }}>
-                                                            Batu Permanen</option>
-                                                        <option value="Bambu Anyam"
-                                                            {{ old('kondisi_rumah', $dataset->kondisi_rumah) == 'Bambu Anyam' ? 'selected' : '' }}>
-                                                            Bambu Anyam</option>
-                                                        <option value="Papan"
-                                                            {{ old('kondisi_rumah', $dataset->kondisi_rumah) == 'Papan' ? 'selected' : '' }}>
-                                                            Papan</option>
+                                                        class="form-control @error('ekstrakurikuler') is-invalid @enderror"
+                                                        name="ekstrakurikuler" id="ekstrakurikuler" required>
+                                                        <option value="1"
+                                                            {{ old('ekstrakurikuler', $dataset->ekstrakurikuler) == '1' ? 'selected' : '' }}>
+                                                            Terlibat
+                                                        </option>
+                                                        <option value="0"
+                                                            {{ old('ekstrakurikuler', $dataset->ekstrakurikuler) == '0' ? 'selected' : '' }}>
+                                                            Tidak Terlibat
+                                                        </option>
                                                     </select>
-                                                    @error('kondisi_rumah')
+                                                    @error('ekstrakurikuler')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
                                                         </div>
@@ -172,34 +125,33 @@
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="jml_penghasilan" class="form-label">Jumlah
-                                                        Penghasilan</label>
+                                                    <label for="kepemimpinan" class="form-label">Kepemimpinan</label>
+                                                    <select class="form-control @error('kepemimpinan') is-invalid @enderror"
+                                                        name="kepemimpinan" id="kepemimpinan" required>
+                                                        <option value="1"
+                                                            {{ old('kepemimpinan', $dataset->kepemimpinan) == '1' ? 'selected' : '' }}>
+                                                            Ada
+                                                        </option>
+                                                        <option value="0"
+                                                            {{ old('kepemimpinan', $dataset->kepemimpinan) == '0' ? 'selected' : '' }}>
+                                                            Tidak Ada
+                                                        </option>
+                                                    </select>
+                                                    @error('kepemimpinan')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="sertifikat" class="form-label">Jumlah Sertifikat</label>
                                                     <input type="number"
-                                                        class="form-control @error('jml_penghasilan') is-invalid @enderror"
-                                                        name="jml_penghasilan" id="jml_penghasilan"
-                                                        value="{{ old('jml_penghasilan', $dataset->jml_penghasilan) }}"
+                                                        class="form-control @error('sertifikat') is-invalid @enderror"
+                                                        name="sertifikat" id="sertifikat"
+                                                        value="{{ old('sertifikat', $dataset->sertifikat) }}" autofocus
                                                         required>
-                                                    @error('jml_penghasilan')
-                                                        <div class="invalid-feedback">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-
-                                                <div class="mb-3">
-                                                    <label for="status_rumah" class="form-label">Status Rumah</label>
-                                                    <select
-                                                        class="form-control @error('status_rumah') is-invalid @enderror"
-                                                        name="status_rumah" id="status_rumah" required>
-                                                        <option value="">Pilih Status Rumah</option>
-                                                        <option value="Milik Sendiri"
-                                                            {{ old('status_rumah', $dataset->status_rumah) == 'Milik Sendiri' ? 'selected' : '' }}>
-                                                            Milik Sendiri</option>
-                                                        <option value="Sewa"
-                                                            {{ old('status_rumah', $dataset->status_rumah) == 'Sewa' ? 'selected' : '' }}>
-                                                            Sewa</option>
-                                                    </select>
-                                                    @error('status_rumah')
+                                                    @error('sertifikat')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
                                                         </div>
@@ -211,13 +163,13 @@
                                                     <select class="form-control @error('label') is-invalid @enderror"
                                                         name="label" id="label" required>
                                                         <option value="">Pilih Label</option>
-                                                        <option value="1"
-                                                            {{ old('label', $dataset->label) == 'Layak' ? 'selected' : '' }}>
-                                                            Layak
+                                                        <option value="Berprestasi Akademik"
+                                                            {{ old('label', $dataset->label) == 'Berprestasi Akademik' ? 'selected' : '' }}>
+                                                            Berprestasi Akademik
                                                         </option>
-                                                        <option value="0"
-                                                            {{ old('label', $dataset->label) == 'Tidak Layak' ? 'selected' : '' }}>
-                                                            Tidak Layak</option>
+                                                        <option value="Berprestasi Non-Akademik"
+                                                            {{ old('label', $dataset->label) == 'Berprestasi Non-Akademik' ? 'selected' : '' }}>
+                                                            Berprestasi Non-Akademik</option>
                                                     </select>
                                                     @error('label')
                                                         <div class="invalid-feedback">
@@ -278,89 +230,73 @@
                     </div>
                 @enderror
             </div>
+
             <div class="mb-3">
-                <label for="pkh" class="form-label">PKH</label>
-                <select class="form-control @error('pkh') is-invalid @enderror" name="pkh" id="pkh" required>
-                    <option value="">Pilih PKH</option>
-                    <option value="PKH">PKH</option>
-                    <option value="Non-PKH">Non-PKH</option>
+                <label for="ipk" class="form-label">IPK</label>
+                <input type="number" step="0.01" class="form-control @error('ipk') is-invalid @enderror"
+                    name="ipk" id="ipk" autofocus required>
+                @error('ipk')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
+            <div class="mb-3">
+                <label for="ekstrakurikuler" class="form-label">Ekstrakurikuler</label>
+                <select class="form-control @error('ekstrakurikuler') is-invalid @enderror" name="ekstrakurikuler"
+                    id="ekstrakurikuler" required>
+                    <option value="1">Terlibat</option>
+                    <option value="0">
+                        Tidak Terlibat
+                    </option>
                 </select>
-                @error('pkh')
+                @error('ekstrakurikuler')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                 @enderror
             </div>
+
             <div class="mb-3">
-                <label for="jml_tanggungan" class="form-label">Jumlah Tanggungan</label>
-                <input type="number" class="form-control @error('jml_tanggungan') is-invalid @enderror"
-                    name="jml_tanggungan" id="jml_tanggungan" required>
-                @error('jml_tanggungan')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-            <div class="mb-3">
-                <label for="kepala_rt" class="form-label">Kepala Rumah Tangga</label>
-                <select class="form-control @error('kepala_rt') is-invalid @enderror" name="kepala_rt" id="kepala_rt"
-                    required>
-                    <option value="">Pilih Jenis Kelamin Kepala Rumah Tangga</option>
-                    <option value="Laki-Laki">Laki-Laki</option>
-                    <option value="Perempuan">Perempuan</option>
+                <label for="kepemimpinan" class="form-label">Kepemimpinan</label>
+                <select class="form-control @error('kepemimpinan') is-invalid @enderror" name="kepemimpinan"
+                    id="kepemimpinan" required>
+                    <option value="1">
+                        Ada
+                    </option>
+                    <option value="0">
+                        Tidak Ada
+                    </option>
                 </select>
-                @error('kepala_rt')
+                @error('kepemimpinan')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                 @enderror
             </div>
+
             <div class="mb-3">
-                <label for="kondisi_rumah" class="form-label">Kondisi Rumah</label>
-                <select class="form-control @error('kondisi_rumah') is-invalid @enderror" name="kondisi_rumah"
-                    id="kondisi_rumah" required>
-                    <option value="">Pilih Kondisi Rumah</option>
-                    <option value="Batu Permanen">Batu Permanen</option>
-                    <option value="Bambu Anyam">Bambu Anyam</option>
-                    <option value="Papan">Papan</option>
-                </select>
-                @error('kepala_rt')
+                <label for="sertifikat" class="form-label">Jumlah Sertifikat</label>
+                <input type="number" class="form-control @error('sertifikat') is-invalid @enderror" name="sertifikat"
+                    id="sertifikat" autofocus required>
+                @error('sertifikat')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                 @enderror
             </div>
-            <div class="mb-3">
-                <label for="jml_penghasilan" class="form-label">Jumlah Penghasilan</label>
-                <input type="number" class="form-control @error('jml_penghasilan') is-invalid @enderror"
-                    name="jml_penghasilan" id="jml_penghasilan" required>
-                @error('jml_penghasilan')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-            <div class="mb-3">
-                <label for="status_rumah" class="form-label">Status Rumah</label>
-                <select class="form-control @error('status_rumah') is-invalid @enderror" name="status_rumah"
-                    id="status_rumah" required>
-                    <option value="">Pilih Status Rumah</option>
-                    <option value="Milik Sendiri">Milik Sendiri</option>
-                    <option value="Sewa">Sewa</option>
-                </select>
-                @error('status_rumah')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
+
             <div class="mb-3">
                 <label for="label" class="form-label">Label</label>
                 <select class="form-control @error('label') is-invalid @enderror" name="label" id="label"
                     required>
                     <option value="">Pilih Label</option>
-                    <option value="Layak">Layak</option>
-                    <option value="Tidak Layak">Tidak Layak</option>
+                    <option value="Berprestasi Akademik">
+                        Berprestasi Akademik
+                    </option>
+                    <option value="Berprestasi Non-Akademik">
+                        Berprestasi Non-Akademik</option>
                 </select>
                 @error('label')
                     <div class="invalid-feedback">

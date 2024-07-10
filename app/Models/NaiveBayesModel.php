@@ -12,15 +12,15 @@ class NaiveBayesModel extends Model
         // Ambil data dari dataset berdasarkan ID
         $dataset = Dataset::findOrFail($datasetId);
         // Hitung probabilitas kelas layak (1) dan tidak layak (0)
-        $prob_layak = $this->calculateProbability(1, $dataset);
-        $prob_tidak_layak = $this->calculateProbability(0, $dataset);
+        $prob_layak = $this->calculateProbability('Berprestasi Akademik', $dataset);
+        $prob_tidak_layak = $this->calculateProbability('Berprestasi Non-Akademik', $dataset);
 
 
         // Klasifikasi berdasarkan probabilitas tertinggi
         if ($prob_layak > $prob_tidak_layak) {
-            return 'Layak';
+            return 'Berprestasi Akademik';
         } else {
-            return 'Tidak Layak';
+            return 'Berprestasi Non-Akademik';
         }
     }
 
@@ -40,11 +40,10 @@ class NaiveBayesModel extends Model
         $conditional_prob = [];
 
         $features = [
-            'pkh' => $dataset->pkh,
-            'jml_tanggungan' => $dataset->jml_tanggungan,
-            'kepala_rt' => $dataset->kepala_rt,
-            'kondisi_rumah' => $dataset->kondisi_rumah,
-            'jml_penghasilan' => $dataset->jml_penghasilan,
+            'ipk' => $dataset->ipk,
+            'ekstrakurikuler' => $dataset->ekstrakurikuler,
+            'kepemimpinan' => $dataset->kepemimpinan,
+            'sertifikat' => $dataset->sertifikat,
         ];
 
         foreach ($features as $key => $value) {

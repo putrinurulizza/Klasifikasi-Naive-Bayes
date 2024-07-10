@@ -16,13 +16,11 @@ return new class extends Migration
         Schema::create('datasets', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->enum('pkh', ['PKH', 'Non-PKH']);
-            $table->tinyInteger('jml_tanggungan');
-            $table->enum('kepala_rt', ['Laki-Laki', 'Perempuan']);
-            $table->enum('kondisi_rumah', ['Batu Permanen', 'Bambu Anyam', 'Papan']);
-            $table->integer('jml_penghasilan');
-            $table->enum('status_rumah', ['Milik Sendiri', 'Sewa']);
-            $table->string('label');
+            $table->float('ipk');
+            $table->boolean('ekstrakurikuler');
+            $table->boolean('kepemimpinan');
+            $table->integer('sertifikat');
+            $table->enum('label', ['Berprestasi Akademik', 'Berprestasi Non-Akademik']);
             $table->timestamps();
         });
     }

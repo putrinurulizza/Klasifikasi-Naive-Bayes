@@ -18,8 +18,8 @@ class DashboardController extends Controller
     {
         $totalUser = User::count();
         $totalData = Dataset::count();
-        $totalLayak = Klasifikasi::where('hasil_klasifikasi', "Layak")->count();
-        $totalNoLayak = Klasifikasi::where('hasil_klasifikasi', "Tidak Layak")->count();
+        $totalAkademik = Klasifikasi::where('hasil_klasifikasi', "Berprestasi Akademik")->count();
+        $totalNon = Klasifikasi::where('hasil_klasifikasi', "Berprestasi Non-Akademik")->count();
 
         return view(
             'dashboard.index',
@@ -27,8 +27,8 @@ class DashboardController extends Controller
                 'title' => 'Dashboard',
                 'user' => $totalUser,
                 'data' => $totalData,
-                'layak' => $totalLayak,
-                'tidak' => $totalNoLayak,
+                'totalAkademik' => $totalAkademik,
+                'totalNon' => $totalNon,
             ]
         );
     }

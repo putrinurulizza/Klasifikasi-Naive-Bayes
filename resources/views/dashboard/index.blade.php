@@ -57,7 +57,7 @@
                 <!-- heading -->
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div>
-                        <h5 class="mb-0 fw-bold">Klasifikasi Layak</h5>
+                        <h5 class="mb-0 fw-bold">Klasifikasi Berprestasi Akademik</h5>
                     </div>
                     <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
                         <i class="fa-regular fa-check fs-4"></i>
@@ -66,8 +66,8 @@
 
                 <!-- project number -->
                 <div>
-                    <h5>Total Data Layak</h5>
-                    <h5>{{ $layak }} Data</h5>
+                    <h5>Total</h5>
+                    <h5>{{ $totalAkademik }} Data</h5>
                 </div>
             </div>
         </div>
@@ -80,7 +80,7 @@
                 <!-- heading -->
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div>
-                        <h5 class="mb-0 fw-bold">Klasifikasi Tidak Layak</h5>
+                        <h5 class="mb-0 fw-bold">Klasifikasi Berprestasi Non-Akademik</h5>
                     </div>
                     <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
                         <i class="fa-regular fa-x fs-4"></i>
@@ -89,8 +89,8 @@
 
                 <!-- project number -->
                 <div>
-                    <h5>Total Data Tidak Layak</h5>
-                    <h5>{{ $tidak }} Data</h5>
+                    <h5>Total</h5>
+                    <h5>{{ $totalNon }} Data</h5>
                 </div>
             </div>
         </div>

@@ -45,13 +45,11 @@ class DatasetController extends Controller
         try {
             $validatedData = $request->validate([
                 'nama' => 'required',
-                'pkh' => 'required|in:PKH,Non-PKH',
-                'jml_tanggungan' => 'required|integer',
-                'kepala_rt' => 'required|in:Laki-Laki,Perempuan',
-                'kondisi_rumah' => 'required|in:Batu Permanen,Bambu Anyam,Papan',
-                'jml_penghasilan' => 'required|integer',
-                'status_rumah' => 'required|in:Milik Sendiri,Sewa',
-                'label' => 'required|in:Layak,Tidak Layak',
+                'ipk' => 'required',
+                'ekstrakurikuler' => 'required',
+                'kepemimpinan' => 'required',
+                'sertifikat' => 'required|integer',
+                'label' => 'required|in:Berprestasi Akademik,Berprestasi Non-Akademik',
             ]);
 
             Dataset::create($validatedData);
@@ -96,13 +94,11 @@ class DatasetController extends Controller
         try {
             $rules = [
                 'nama' => 'required',
-                'pkh' => 'required|in:PKH,Non-PKH',
-                'jml_tanggungan' => 'required|integer',
-                'kepala_rt' => 'required|in:Laki-Laki,Perempuan',
-                'kondisi_rumah' => 'required|in:Batu Permanen,Bambu Anyam,Papan',
-                'jml_penghasilan' => 'required|integer',
-                'status_rumah' => 'required|in:Milik Sendiri,Sewa',
-                'label' => 'required|integer',
+                'ipk' => 'required',
+                'ekstrakurikuler' => 'required',
+                'kepemimpinan' => 'required',
+                'sertifikat' => 'required|integer',
+                'label' => 'required|in:Berprestasi Akademik,Berprestasi Non-Akademik',
             ];
 
             $validatedData = $this->validate($request, $rules);
